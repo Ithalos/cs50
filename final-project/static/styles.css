@@ -18,9 +18,11 @@ html
 
 body
 {
+    background-color: #FEF6EB;
+    font-size: 100%;
+
     /* Margin should match footer height */
     margin: 0 0 30px;
-    background-color: #FEF6EB;
 }
 
 footer
