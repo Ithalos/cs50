@@ -8,10 +8,16 @@
 
         <link href="{{ url_for("static", filename="styles.css") }}" rel="stylesheet" />
 
+        {% block head %}
+        {% endblock %}
+
         <title>{% block title %}</title>
 
     </head>
     <body>
+
+        {% block body %}
+        {% endblock %}
 
         <footer>&copy; 2017 Sam Triest</footer>
     </body>
