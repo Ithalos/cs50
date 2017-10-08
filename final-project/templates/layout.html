@@ -21,10 +21,10 @@
 
                 {% if session.user_id %}
                     <li>
-                        <a href="{{ url_for("entries") }}" style="float:left">Entries</a>
-                    </li>
-                    <li>
                         <a href="{{ url_for("logout") }}">Log out</a>
+                    </li>
+                    <li style="float:left">
+                        <a href="{{ url_for("entries") }}">Entries</a>
                     </li>
                 {% else %}
                     <li>
