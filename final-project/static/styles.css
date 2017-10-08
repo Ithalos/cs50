@@ -10,10 +10,37 @@
  *
 */
 
+html
+{
+    position: relative;
+    min-height: 100%;
+}
+
+body
+{
+    /* Margin should match footer height */
+    margin: 0 0 30px;
+    background-color: #FEF6EB;
+}
+
 footer
 {
+    /* Height should match body margin */
+    height: 30;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    overflow: hidden;
+    position: absolute;
     text-align: center;
 }
+
+footer p, footer a
+{
+    font-style: oblique;
+    color: #C25B56;
+}
+
 
 .nav-bar ul
 {
