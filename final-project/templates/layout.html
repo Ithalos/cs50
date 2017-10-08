@@ -16,6 +16,28 @@
     </head>
     <body>
 
+        <div class="nav-bar">
+            <ul>
+
+                {% if session.user_id %}
+                    <li>
+                        <a href="{{ url_for("entries") }}" style="float:left">Entries</a>
+                    </li>
+                    <li>
+                        <a href="{{ url_for("logout") }}">Log out</a>
+                    </li>
+                {% else %}
+                    <li>
+                        <a href="{{ url_for("register") }}">Register</a>
+                    </li>
+                    <li>
+                        <a href="{{ url_for("login") }}">Log in</a>
+                    </li>
+                {% endif %}
+
+            </ul>
+        </div>
+
         {% block body %}
         {% endblock %}
 
