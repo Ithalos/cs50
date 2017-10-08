@@ -15,3 +15,35 @@ footer
     text-align: center;
 }
 
+.nav-bar ul
+{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #C25B56;
+}
+
+.nav-bar li
+{
+    float: right;
+}
+
+.nav-bar a
+{
+    font-size: 140%;
+    display: block;
+    color: #FEF6EB;
+    text-align: center;
+    padding: 15px 20px;
+    text-decoration: none;
+    font-weight: bold;
+    font-family: "Arial", "Sans";
+}
+
+.nav-bar a:hover
+{
+    background-color: #FEF6EB;
+    color: #74828F;
+}
+
