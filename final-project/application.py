@@ -1,8 +1,9 @@
-import os
-from flask import Flask, render_template
+from flask import Flask, render_template, session
+from helpers import *
+from os import getenv
 
 app = Flask(__name__)
-app.config["SECRET_KEY"] = os.getenv("FLASK_SECRET_KEY")
+app.config["SECRET_KEY"] = getenv("FLASK_SECRET_KEY")
 
 
 @app.route("/", methods=["GET"])
