@@ -28,3 +28,9 @@ def logout():
 
     return render_template("index.html")
 
+
+@app.route("/entries", methods=["GET", "POST"])
+def entries():
+
+    return render_template("entries.html")
+
