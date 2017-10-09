@@ -29,3 +29,18 @@ def encrypt_password(password):
 
     return hashpw(password.encode("utf8"), gensalt())
 
+
+def verify_register_form(args):
+    """
+    Verify user input for the registry form.
+    Checks for the required parameters and their length.
+    """
+
+    if not args.get("username") or len(args.get("username")) < 8 \
+    or not args.get("password") or len(args.get("password")) < 8 \
+    or not args.get("confirmation") or len(args.get("confirmation")) < 8 \
+    or args.get("password") != args.get("confirmation"):
+        return False
+
+    return True
+
