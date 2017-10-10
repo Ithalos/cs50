@@ -1,6 +1,7 @@
 from bcrypt import gensalt, hashpw
 from contextlib import contextmanager
 from data.database import Session
+from data.models import User
 from sqlalchemy.orm.exc import NoResultFound
 
 @contextmanager
@@ -46,4 +47,16 @@ def verify_register_form(args):
         return False
 
     return True
+
+
+def user_exists(username):
+    """
+    Check if user exists in the database.
+    """
+
+    with session_scope() as session:
+        if session.query(User).filter(User.username == username).count() == 1:
+            return True
+        else:
+            return False
 
