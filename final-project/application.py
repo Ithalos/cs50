@@ -1,4 +1,4 @@
-from flask import Flask, render_template, session
+from flask import flash, Flask, redirect, render_template, request, url_for
 from helpers import *
 from os import getenv
 
@@ -15,6 +15,20 @@ def index():
 @app.route("/register", methods=["GET", "POST"])
 def register():
 
+    if request.method == "POST":
+        if verify_register_form(request.form):
+            if register_user(request.form):
+                flash("Registration successful!", "message")
+                return redirect(url_for("entries"))
+
+            else:
+                flash("User already exists!", "error")
+        else:
+            flash("Invalid form submission!", "error")
+
+        return redirect(url_for("register"))
+
+    # Request method is GET
     return render_template("register.html")
 
 
