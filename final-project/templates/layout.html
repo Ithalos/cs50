@@ -19,7 +19,7 @@
         <div class="nav-bar">
             <ul>
 
-                {% if session.user_id %}
+                {% if session.user %}
                     <li>
                         <a href="{{ url_for("logout") }}">Log out</a>
                     </li>
