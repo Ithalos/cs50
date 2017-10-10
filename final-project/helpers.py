@@ -49,6 +49,24 @@ def verify_register_form(args):
     return True
 
 
+def register_user(args):
+    """
+    Register a user in the database.
+    """
+
+    # Check if user exists first to prevent unneeded calculations
+    username = args.get("username")
+    if user_exists(username):
+        return False
+
+    password = encrypt_password(args.get("password"))
+    user = User(username=username, password=password)
+
+    with session_scope() as session:
+        session.add(user)
+        return True
+
+
 def user_exists(username):
     """
     Check if user exists in the database.
