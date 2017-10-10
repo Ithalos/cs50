@@ -19,7 +19,6 @@ def session_scope():
 
     except NoResultFound:
         session.rollback()
-        raise
 
     finally:
         session.close()
