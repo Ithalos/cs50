@@ -43,7 +43,6 @@ footer p, footer a
     color: #C25B56;
 }
 
-
 .nav-bar ul
 {
     list-style-type: none;
@@ -118,5 +117,39 @@ footer p, footer a
     font-weight: bold;
     text-align: center;
     text-decoration: none;
+}
+
+.flashes
+{
+    padding: 0;
+    margin-left: 0;
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    width: 30em;
+    height: 5em;
+    margin-top: -2.5em;
+    margin-left: -15em;
+}
+
+.flashes li
+{
+    font-family: "Arial", "Sans";
+    padding: 10px;
+    font-size: 120%;
+    text-align: center;
+    list-style-type: none;
+}
+
+li.message
+{
+    background-color: #96C0CE;
+
+}
+
+li.error
+{
+    background-color: #C25B56;
+
 }
 
