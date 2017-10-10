@@ -1,6 +1,7 @@
-from flask import flash, Flask, redirect, render_template, request, url_for
+from flask import flash, Flask, redirect, render_template, request, session, url_for
 from helpers import *
 from os import getenv
+
 
 app = Flask(__name__)
 app.config["SECRET_KEY"] = getenv("FLASK_SECRET_KEY")
@@ -19,6 +20,7 @@ def register():
         if verify_register_form(request.form):
             if register_user(request.form):
                 flash("Registration successful!", "message")
+                session["user"] = request.form.get("username")
                 return redirect(url_for("entries"))
 
             else:
