@@ -1,4 +1,4 @@
-from bcrypt import gensalt, hashpw
+from bcrypt import checkpw, gensalt, hashpw
 from contextlib import contextmanager
 from data.database import Session
 from data.models import User
@@ -94,4 +94,20 @@ def verify_login_form(args):
         return False
 
     return True
+
+
+def verify_user(args):
+    """
+    Check the given username and password against the database.
+    """
+
+    username = args.get("username")
+    if not user_exists(username):
+        return False
+
+    password = args.get("password").encode("utf8")
+
+    with session_scope() as session:
+        user = session.query(User).filter(User.username == username).one()
+        return checkpw(password, user.password)
 
