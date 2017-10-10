@@ -37,6 +37,21 @@ def register():
 @app.route("/login", methods=["GET", "POST"])
 def login():
 
+    if request.method == "POST":
+        if verify_login_form(request.form):
+            if verify_user(request.form):
+                flash("Logged in!", "message")
+                session["user"] = request.form.get("username")
+                return redirect(url_for("entries"))
+
+            else:
+                flash("Username and/or password incorrect!", "error")
+        else:
+            flash("Invalid form submission!", "error")
+
+        return redirect(url_for("login"))
+
+    # Request method is GET
     return render_template("login.html")
 
 
