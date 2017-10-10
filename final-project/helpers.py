@@ -4,6 +4,7 @@ from data.database import Session
 from data.models import User
 from sqlalchemy.orm.exc import NoResultFound
 
+
 @contextmanager
 def session_scope():
     """
