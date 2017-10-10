@@ -57,7 +57,7 @@ def register_user(args):
 
     # Check if user exists first to prevent unneeded calculations
     username = args.get("username")
-    if user_exists(username) is not None:
+    if user_exists(username):
         return False
 
     password = encrypt_password(args.get("password"))
@@ -70,16 +70,17 @@ def register_user(args):
 
 def user_exists(username):
     """
-    Check if user exists in the database.
-    If it does, return that user object, else None.
+    Check if user exists in the database, and returns a boolean.
     """
 
     with session_scope() as session:
-        query = session.query(User).filter(User.username == username).one()
-        if type(query) is User:
-            return query
-
-    return None
+        count = session.query(User).filter(User.username == username).count()
+        if count == 1:
+            return True
+        elif count == 0:
+            return False
+        else:
+            raise Exception("Multiple users with same name found!")
 
 
 def verify_login_form(args):
