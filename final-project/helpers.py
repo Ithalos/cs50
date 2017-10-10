@@ -1,6 +1,7 @@
 from bcrypt import gensalt, hashpw
 from contextlib import contextmanager
 from data.database import Session
+from sqlalchemy.orm.exc import NoResultFound
 
 @contextmanager
 def session_scope():
@@ -15,8 +16,11 @@ def session_scope():
     try:
         yield session
         session.commit()
-    except:
+
+    except NoResultFound:
         session.rollback()
+        raise
+
     finally:
         session.close()
 
