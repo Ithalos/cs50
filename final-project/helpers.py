@@ -19,8 +19,9 @@ def session_scope():
         yield session
         session.commit()
 
-    except NoResultFound:
+    except:
         session.rollback()
+        raise
 
     finally:
         session.close()
@@ -74,13 +75,11 @@ def user_exists(username):
     """
 
     with session_scope() as session:
-        count = session.query(User).filter(User.username == username).count()
-        if count == 1:
+        try:
+            session.query(User).filter(User.username == username).one()
             return True
-        elif count == 0:
+        except NoResultFound:
             return False
-        else:
-            raise Exception("Multiple users with same name found!")
 
 
 def verify_login_form(args):
