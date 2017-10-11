@@ -1,15 +1,3 @@
-/*
- * Colour references:
- *
- * Dark grey-blue:      #525564
- * Light grey-blue:     #74828F
- * Light blue:          #96C0CE
- * Grey beige:          #BEB9B5
- * Brick red:           #C25B56
- * Light beige:         #FEF6EB
- *
-*/
-
 html
 {
     position: relative;
@@ -18,7 +6,7 @@ html
 
 body
 {
-    background-color: #FEF6EB;
+    background-color: #F5F5F5;
     font-size: 100%;
 
     /* Margin should match footer height */
@@ -40,7 +28,7 @@ footer
 footer p, footer a
 {
     font-style: oblique;
-    color: #C25B56;
+    color: #5F5F87;
 }
 
 .nav-bar ul
@@ -49,7 +37,7 @@ footer p, footer a
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #C25B56;
+    background-color: #5F5F87;
 }
 
 .nav-bar li
@@ -61,7 +49,7 @@ footer p, footer a
 {
     font-size: 140%;
     display: block;
-    color: #FEF6EB;
+    color: #F5F5F5;
     text-align: center;
     padding: 15px 20px;
     text-decoration: none;
@@ -71,7 +59,7 @@ footer p, footer a
 
 .nav-bar a:hover
 {
-    background-color: #FEF6EB;
+    background-color: #F5F5F5;
     color: #74828F;
 }
 
@@ -86,20 +74,20 @@ footer p, footer a
     margin-top: -10em;
     margin-left: -15em;
 
-    background-color: #FEF6EB;
+    background-color: #F5F5F5;
     text-align: center;
 }
 
 .form input[type=text], .form input[type=password]
 {
-    border: 2px solid #C25B56;
+    border: 2px solid #5F5F87;
     box-sizing: border-box;
     margin-bottom: 1em;
     padding: 10px;
     width: 95%;
 
-    background-color: #BEB9B5;
-    color: #C25B56;
+    background-color: #FFFFFF;
+    color: #5F5F87;
     font-weight: bold;
     text-align: center;
 }
@@ -112,8 +100,8 @@ footer p, footer a
     padding: 14px;
     width: 80%;
 
-    background-color: #C25B56;
-    color: #FEF6EB;
+    background-color: #5F5F87;
+    color: #F5F5F5;
     font-weight: bold;
     text-align: center;
     text-decoration: none;
@@ -135,6 +123,7 @@ footer p, footer a
 .flashes li
 {
     font-family: "Arial", "Sans";
+    color: #FFFFFF;
     padding: 10px;
     font-size: 120%;
     text-align: center;
@@ -143,13 +132,13 @@ footer p, footer a
 
 li.message
 {
-    background-color: #96C0CE;
+    background-color: #5F5F87;
 
 }
 
 li.error
 {
-    background-color: #C25B56;
+    background-color: #5F5F87;
 
 }
 
