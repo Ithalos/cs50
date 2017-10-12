@@ -8,6 +8,12 @@ from sqlalchemy.orm.exc import NoResultFound
 
 
 def login_required(f):
+    """
+    Require the user to be logged in to access a route.
+
+    http://flask.pocoo.org/docs/latest/patterns/viewdecorators
+    """
+
     @wraps(f)
     def decorated_function(*args, **kwargs):
         if session.get("user") is None:
