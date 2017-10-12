@@ -121,3 +121,16 @@ def verify_user(args):
         user = db_session.query(User).filter(User.username == username).one()
         return checkpw(password, user.password)
 
+
+def get_user_id_from_username(username):
+    """
+    Look up a user by their username, and if it exists, return
+    their id, else None.
+    """
+
+    with db_session_scope() as db_session:
+        try:
+            return db_session.query(User.id).filter(User.username == username).scalar()
+        except NoResultFound:
+            return None
+
