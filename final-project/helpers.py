@@ -6,25 +6,25 @@ from sqlalchemy.orm.exc import NoResultFound
 
 
 @contextmanager
-def session_scope():
+def db_session_scope():
     """
     Provide a transactional scope around a series of operations.
 
     http://docs.sqlalchemy.org/en/latest/orm/session_basics.html
     """
 
-    session = Session()
+    db_session = Session()
 
     try:
-        yield session
-        session.commit()
+        yield db_session
+        db_session.commit()
 
     except:
-        session.rollback()
+        db_session.rollback()
         raise
 
     finally:
-        session.close()
+        db_session.close()
 
 
 def encrypt_password(password):
@@ -64,8 +64,8 @@ def register_user(args):
     password = encrypt_password(args.get("password"))
     user = User(username=username, password=password)
 
-    with session_scope() as session:
-        session.add(user)
+    with db_session_scope() as db_session:
+        db_session.add(user)
         return True
 
 
@@ -74,9 +74,9 @@ def user_exists(username):
     Check if user exists in the database, and returns a boolean.
     """
 
-    with session_scope() as session:
+    with db_session_scope() as db_session:
         try:
-            session.query(User).filter(User.username == username).one()
+            db_session.query(User).filter(User.username == username).one()
             return True
         except NoResultFound:
             return False
@@ -106,7 +106,7 @@ def verify_user(args):
 
     password = args.get("password").encode("utf8")
 
-    with session_scope() as session:
-        user = session.query(User).filter(User.username == username).one()
+    with db_session_scope() as db_session:
+        user = db_session.query(User).filter(User.username == username).one()
         return checkpw(password, user.password)
 
