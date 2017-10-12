@@ -2,7 +2,18 @@ from bcrypt import checkpw, gensalt, hashpw
 from contextlib import contextmanager
 from data.database import Session
 from data.models import User
+from flask import request, redirect, session, url_for
+from functools import wraps
 from sqlalchemy.orm.exc import NoResultFound
+
+
+def login_required(f):
+    @wraps(f)
+    def decorated_function(*args, **kwargs):
+        if session.get("user") is None:
+            return redirect(url_for("login", next=request.url))
+        return f(*args, **kwargs)
+    return decorated_function
 
 
 @contextmanager
