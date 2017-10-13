@@ -22,7 +22,7 @@ def register():
             if register_user(request.form):
                 flash("Registration successful!", "message")
                 add_user_to_session(request.form.get("username"))
-                return redirect(url_for("entries"))
+                return redirect(url_for("index"))
 
             else:
                 flash("User already exists!", "error")
@@ -43,7 +43,7 @@ def login():
             if verify_user(request.form):
                 flash("Logged in!", "message")
                 add_user_to_session(request.form.get("username"))
-                return redirect(url_for("entries"))
+                return redirect(url_for("index"))
 
             else:
                 flash("Username and/or password incorrect!", "error")
