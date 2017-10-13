@@ -77,7 +77,14 @@ def memos():
 @login_required
 def create_memo():
 
-    return "TODO"
+    memo_text = request.form.get("memo_text")
+
+    if memo_text != "":
+        create_new_memo(memo_text)
+    else:
+        flash("You cannot create an empty memo!", "error")
+
+    return redirect(url_for("memos"))
 
 
 @app.route("/remove_memo", methods=["POST"])
