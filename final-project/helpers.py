@@ -162,3 +162,12 @@ def create_new_memo(text):
         user.memos += [Memo(text=text)]
         db_session.add(user)
 
+
+def remove_memo_by_id(memo_id):
+    """
+    Remove a memo from the database by looking up its id.
+    """
+
+    with db_session_scope() as db_session:
+        db_session.query(Memo).filter(Memo.id == memo_id).delete()
+
