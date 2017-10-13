@@ -60,7 +60,7 @@ footer p, footer a
 .nav-bar a:hover
 {
     background-color: #F5F5F5;
-    color: #74828F;
+    color: #5F5F87;
 }
 
 .form
@@ -140,5 +140,10 @@ li.error
 {
     background-color: #5F5F87;
 
+}
+
+li.nav-left
+{
+    float: left;
 }
 
