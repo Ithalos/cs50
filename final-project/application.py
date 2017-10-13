@@ -61,9 +61,3 @@ def logout():
     session.pop("user_id", None)
     return redirect(url_for("index"))
 
-
-@app.route("/entries", methods=["GET", "POST"])
-def entries():
-
-    return render_template("entries.html")
-
