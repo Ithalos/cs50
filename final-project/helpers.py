@@ -1,7 +1,7 @@
 from bcrypt import checkpw, gensalt, hashpw
 from contextlib import contextmanager
 from data.database import Session
-from data.models import User
+from data.models import Memo, User
 from flask import request, redirect, session, url_for
 from functools import wraps
 from sqlalchemy.orm.exc import NoResultFound
@@ -148,4 +148,17 @@ def add_user_to_session(username):
 
     user_id = get_user_id_from_username(username)
     session["user_id"] = user_id
+
+
+def create_new_memo(text):
+    """
+    Create a new memo in the database.
+    """
+
+    user_id = session.get("user_id")
+
+    with db_session_scope() as db_session:
+        user = db_session.query(User).filter(User.id == user_id).one()
+        user.memos += [Memo(text=text)]
+        db_session.add(user)
 
