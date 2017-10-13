@@ -1,6 +1,35 @@
 {% extends "layout.html" %}
 
 {% block title %}
-    Entries
+    Memos
+{% endblock %}
+
+{% block body %}
+
+    <div class="create_memo">
+        <form action="{{ url_for("create_memo") }}" method="post">
+            <input type="text" name="memo_text" placeholder="Enter new memo..." />
+            <input type="submit" value="Create" />
+        </form>
+    </div>
+
+    <div class="memos">
+        {% if memos %}
+            <ul class="memo-list">
+                {% for memo in memos %}
+                    <li>
+                        <form action="{{ url_for("remove_memo") }}" method="post">
+                            <input type="hidden" name="memo_id" value="{{ memo.id }}" />
+                            <p>{{ memo.text }}</p>
+                            <input type="submit" value="Remove" />
+                        </form>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>Nothing here yet!</p>
+        {% endif %}
+    </div>
+
 {% endblock %}
 
