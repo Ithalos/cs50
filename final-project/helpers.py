@@ -140,3 +140,12 @@ def get_user_id_from_username(username):
         except NoResultFound:
             return None
 
+
+def add_user_to_session(username):
+    """
+    Adds a user's id to the session by looking up their username.
+    """
+
+    user_id = get_user_id_from_username(username)
+    session["user_id"] = user_id
+
