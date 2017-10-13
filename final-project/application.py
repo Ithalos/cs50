@@ -1,3 +1,4 @@
+from data.models import Memo
 from flask import flash, Flask, redirect, render_template, request, session, url_for
 from helpers import *
 from os import getenv
@@ -66,7 +67,10 @@ def logout():
 @login_required
 def memos():
 
-    return "TODO"
+    user_id = session.get("user_id")
+    with db_session_scope() as db_session:
+        memos = db_session.query(Memo).filter(Memo.user_id == user_id).all()
+        return render_template("memos.html", memos=memos)
 
 
 @app.route("/create_memo", methods=["POST"])
