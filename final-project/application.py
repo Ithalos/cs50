@@ -91,5 +91,6 @@ def create_memo():
 @login_required
 def remove_memo():
 
-    return "TODO"
+    remove_memo_by_id(request.form.get("memo_id"))
+    return redirect(url_for("memos"))
 
