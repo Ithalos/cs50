@@ -20,7 +20,7 @@ def register():
         if verify_register_form(request.form):
             if register_user(request.form):
                 flash("Registration successful!", "message")
-                session["user"] = request.form.get("username")
+                add_user_to_session(request.form.get("username"))
                 return redirect(url_for("entries"))
 
             else:
@@ -41,7 +41,7 @@ def login():
         if verify_login_form(request.form):
             if verify_user(request.form):
                 flash("Logged in!", "message")
-                session["user"] = request.form.get("username")
+                add_user_to_session(request.form.get("username"))
                 return redirect(url_for("entries"))
 
             else:
@@ -58,7 +58,7 @@ def login():
 @app.route("/logout", methods=["GET"])
 def logout():
 
-    session.pop("user", None)
+    session.pop("user_id", None)
     return redirect(url_for("index"))
 
 

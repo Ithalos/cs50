@@ -19,7 +19,7 @@
         <div class="nav-bar">
             <ul>
 
-                {% if session.user %}
+                {% if session.user_id %}
                     <li class="nav-left">
                         <a href="{{ url_for("memos") }}">Memos</a>
                     </li>
