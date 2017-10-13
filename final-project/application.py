@@ -75,3 +75,10 @@ def create_memo():
 
     return "TODO"
 
+
+@app.route("/remove_memo", methods=["POST"])
+@login_required
+def remove_memo():
+
+    return "TODO"
+
