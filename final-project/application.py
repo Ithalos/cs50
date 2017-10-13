@@ -68,3 +68,10 @@ def memos():
 
     return "TODO"
 
+
+@app.route("/create_memo", methods=["POST"])
+@login_required
+def create_memo():
+
+    return "TODO"
+
