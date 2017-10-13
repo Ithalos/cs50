@@ -20,11 +20,17 @@
             <ul>
 
                 {% if session.user %}
+                    <li class="nav-left">
+                        <a href="{{ url_for("memos") }}">Memos</a>
+                    </li>
+                     <li class="nav-left">
+                        <a href="{{ url_for("tasks") }}">Tasks</a>
+                    </li>
+                     <li class="nav-left">
+                        <a href="{{ url_for("birthdays") }}">Birthdays</a>
+                    </li>
                     <li>
                         <a href="{{ url_for("logout") }}">Log out</a>
-                    </li>
-                    <li style="float:left">
-                        <a href="{{ url_for("entries") }}">Entries</a>
                     </li>
                 {% else %}
                     <li>
