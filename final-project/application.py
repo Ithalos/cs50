@@ -61,3 +61,10 @@ def logout():
     session.pop("user_id", None)
     return redirect(url_for("index"))
 
+
+@app.route("/memos", methods=["GET"])
+@login_required
+def memos():
+
+    return "TODO"
+
