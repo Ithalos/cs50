@@ -94,3 +94,10 @@ def remove_memo():
     remove_memo_by_id(request.form.get("memo_id"))
     return redirect(url_for("memos"))
 
+
+@app.route("/tasks", methods=["GET"])
+@login_required
+def tasks():
+
+    return "TODO"
+
