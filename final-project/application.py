@@ -99,5 +99,5 @@ def remove_memo():
 @login_required
 def tasks():
 
-    return "TODO"
+    return render_template("tasks.html")
 
