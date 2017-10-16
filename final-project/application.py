@@ -101,3 +101,10 @@ def tasks():
 
     return render_template("tasks.html")
 
+
+@app.route("/birthdays", methods=["GET"])
+@login_required
+def birthdays():
+
+    return render_template("birthdays.html")
+
