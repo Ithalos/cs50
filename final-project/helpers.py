@@ -181,3 +181,19 @@ def remove_user_by_id(user_id):
         user = db_session.query(User).filter(User.id == user_id).one()
         db_session.delete(user)
 
+
+def verify_change_password_form(args):
+    """
+    Verify user input for the change password form.
+    """
+
+    if not args.get("oldpassword") or not args.get("newpassword") \
+    or not args.get("confirmation"):
+        return False
+
+    if len(args.get("newpassword")) < 8 or len(args.get("confirmation")) < 8 \
+    or args.get("newpassword") != args.get("confirmation"):
+        return False
+
+    return True
+
