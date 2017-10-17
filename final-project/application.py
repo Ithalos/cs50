@@ -70,6 +70,22 @@ def userprofile():
     return render_template("userprofile.html")
 
 
+@app.route("/change_password", methods=["POST"])
+@login_required
+def change_password():
+
+    if verify_change_password_form(request.form):
+        if change_user_password(request.form):
+            flash("Successfully changed password!", "message")
+
+        else:
+            flash("Failed to change password!", "error")
+    else:
+        flash("Incorrect form submission!", "error")
+
+    return redirect(url_for("userprofile"))
+
+
 @app.route("/remove_account", methods=["POST"])
 @login_required
 def remove_account():
