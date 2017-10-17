@@ -70,6 +70,17 @@ def userprofile():
     return render_template("userprofile.html")
 
 
+@app.route("/remove_account", methods=["POST"])
+@login_required
+def remove_account():
+
+    if request.form.get("remove") is not None:
+        remove_user_by_id(session.get("user_id"))
+
+    flash("Account removed successfully!", "message")
+    return redirect(url_for("logout"))
+
+
 @app.route("/memos", methods=["GET"])
 @login_required
 def memos():
