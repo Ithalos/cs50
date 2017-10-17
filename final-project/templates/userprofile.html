@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Profile
+{% endblock %}
+
+{% block body %}
+
+    <div class="form">
+        <form action="{{ url_for("change_password") }}" method="post" autocomplete="off">
+            <br />
+            <input type="password" name="oldpassword" placeholder="Old password" required>
+            <br />
+            <input type="password" name="newpassword" placeholder="New password" required>
+            <br />
+            <input type="password" name="confirmation" placeholder="Confirm new password" required>
+            <br />
+            <input type="submit" value="Update password">
+        </form>
+        <br />
+        <br />
+        <br />
+        <br />
+        <form action="{{ url_for("remove_account") }}" method="post">
+            <input type="checkbox" name="remove" value="Delete account" required>
+            <br />
+            <input type="submit" value="Remove account">
+            <p>
+                This will remove your account, entries included.<br />
+                Warning: this cannot be undone!
+            </p>
+        </form>
+    </div>
+
+{% endblock %}
+
