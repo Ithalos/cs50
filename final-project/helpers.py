@@ -171,3 +171,13 @@ def remove_memo_by_id(memo_id):
     with db_session_scope() as db_session:
         db_session.query(Memo).filter(Memo.id == memo_id).delete()
 
+
+def remove_user_by_id(user_id):
+    """
+    Delete a user from the database, including all relational elements.
+    """
+
+    with db_session_scope() as db_session:
+        user = db_session.query(User).filter(User.id == user_id).one()
+        db_session.delete(user)
+
