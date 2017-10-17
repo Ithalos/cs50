@@ -182,6 +182,25 @@ def remove_user_by_id(user_id):
         db_session.delete(user)
 
 
+def change_user_password(args):
+    """
+    Allows a user to change their password.
+    """
+
+    user_id = session.get("user_id")
+    old_password = args.get("oldpassword").encode("utf8")
+    new_password = args.get("confirmation")
+
+    with db_session_scope() as db_session:
+        user = db_session.query(User).filter(User.id == user_id).one()
+        if checkpw(old_password, user.password):
+            user.password = encrypt_password(new_password)
+            db_session.add(user)
+            return True
+
+        return False
+
+
 def verify_change_password_form(args):
     """
     Verify user input for the change password form.
