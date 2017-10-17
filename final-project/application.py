@@ -63,6 +63,13 @@ def logout():
     return redirect(url_for("index"))
 
 
+@app.route("/userprofile", methods=["GET"])
+@login_required
+def userprofile():
+
+    return render_template("userprofile.html")
+
+
 @app.route("/memos", methods=["GET"])
 @login_required
 def memos():
