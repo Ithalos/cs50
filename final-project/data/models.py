@@ -10,7 +10,7 @@ class User(Base):
     username = Column(String, nullable=False, unique=True)
     password = Column(String, nullable=False)
 
-    memos = relationship("Memo")
+    memos = relationship("Memo", back_populates="user", cascade="all, delete, delete-orphan")
 
     def __repr__(self):
         return "<User: (username = {}, password = {})>".format(self.username, self.password)
@@ -24,6 +24,7 @@ class Memo(Base):
     text = Column(String, nullable=False)
 
     user_id = Column(Integer, ForeignKey("users.id"))
+    user = relationship("User", back_populates="memos")
 
     def __repr__(self):
         return "<Memo: (text = {})>".format(self.text)
