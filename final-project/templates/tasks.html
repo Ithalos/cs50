@@ -4,3 +4,33 @@
     Tasks
 {% endblock %}
 
+{% block body %}
+
+    <div class="create_task">
+        <form action="{{ url_for("create_task") }}" method="post" autocomplete="off">
+            <input type="text" name="task_date" placeholder="YYYY-MM-DD" />
+            <input type="text" name="task_text" placeholder="New task..." />
+            <input type="submit" value="Create" />
+        </form>
+    </div>
+
+    <div class="tasks">
+        {% if tasks %}
+            <ul class="task-list">
+                {% for task in tasks %}
+                    <li>
+                        <form action="{{ url_for("remove_task") }}" method="post">
+                            <input type="hidden" name="task_id" value="{{ task.id }}" />
+                            <p>{{ task.date }}||{{ task.text }}</p>
+                            <input type="submit" value="Remove" />
+                        </form>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>Nothing here yet!</p>
+        {% endif %}
+    </div>
+
+{% endblock %}
+
