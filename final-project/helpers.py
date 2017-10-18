@@ -218,6 +218,25 @@ def verify_change_password_form(args):
     return True
 
 
+def verify_create_task_form(args):
+    """
+    Verify user input when creating a new task.
+    """
+
+    if not args.get("task_date") or not args.get("task_text"):
+        return False
+
+    date = convert_date_to_object(args.get("task_date"))
+    if date is False:
+        return False
+
+    text = args.get("task_text")
+    if text == "":
+        return False
+
+    return True
+
+
 def convert_date_to_object(datestring):
     """
     Converts a date string to a python date object.
