@@ -2,6 +2,7 @@ from bcrypt import checkpw, gensalt, hashpw
 from contextlib import contextmanager
 from data.database import Session
 from data.models import Memo, User
+from datetime import datetime, date
 from flask import request, redirect, session, url_for
 from functools import wraps
 from sqlalchemy.orm.exc import NoResultFound
@@ -215,4 +216,18 @@ def verify_change_password_form(args):
         return False
 
     return True
+
+
+def convert_date_to_object(datestring):
+    """
+    Converts a date string to a python date object.
+    If the conversion fails, the function will return None.
+
+    String must be formatted as YYYY-MM-DD.
+    """
+
+    try:
+        return datetime.strptime(datestring, "%Y-%m-%d").date()
+    except ValueError:
+        return None
 
