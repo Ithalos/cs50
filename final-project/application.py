@@ -115,6 +115,7 @@ def create_memo():
 
     if memo_text != "":
         create_new_memo(memo_text)
+        flash("New memo created!", "message")
     else:
         flash("You cannot create an empty memo!", "error")
 
