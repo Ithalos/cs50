@@ -156,6 +156,13 @@ def create_task():
     return redirect(url_for("tasks"))
 
 
+@app.route("/remove_task", methods=["POST"])
+@login_required
+def remove_task():
+
+    return "TODO"
+
+
 @app.route("/birthdays", methods=["GET"])
 @login_required
 def birthdays():
