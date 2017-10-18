@@ -1,7 +1,7 @@
 from bcrypt import checkpw, gensalt, hashpw
 from contextlib import contextmanager
 from data.database import Session
-from data.models import Memo, User
+from data.models import Memo, Task, User
 from datetime import datetime, date
 from flask import request, redirect, session, url_for
 from functools import wraps
@@ -235,6 +235,21 @@ def verify_create_task_form(args):
         return False
 
     return True
+
+
+def create_new_task(args):
+    """
+    Create a new task in the database.
+    """
+
+    user_id = session.get("user_id")
+    date = convert_date_to_object(args.get("task_date"))
+    text = args.get("task_text")
+
+    with db_session_scope() as db_session:
+        user = db_session.query(User).filter(User.id == user_id).one()
+        user.tasks += [Task(date=date, text=text)]
+        db_session.add(user)
 
 
 def convert_date_to_object(datestring):
