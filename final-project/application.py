@@ -134,7 +134,10 @@ def remove_memo():
 @login_required
 def tasks():
 
-    return render_template("tasks.html")
+    user_id = session.get("user_id")
+    with db_session_scope() as db_session:
+        tasks = db_session.query(Task).filter(Task.user_id == user_id).all()
+        return render_template("tasks.html", tasks=tasks)
 
 
 @app.route("/birthdays", methods=["GET"])
