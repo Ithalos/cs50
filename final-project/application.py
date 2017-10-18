@@ -140,6 +140,22 @@ def tasks():
         return render_template("tasks.html", tasks=tasks)
 
 
+@app.route("/create_task", methods=["POST"])
+@login_required
+def create_task():
+
+    if verify_create_task_form(request.form):
+        if create_new_task(request.form):
+            flash("New task created!", "message")
+
+        else:
+            flash("Could not create task!", "error")
+    else:
+        flash("Incorrect form submission!", "error")
+
+    return redirect(url_for("tasks"))
+
+
 @app.route("/birthdays", methods=["GET"])
 @login_required
 def birthdays():
