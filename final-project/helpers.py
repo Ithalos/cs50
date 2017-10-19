@@ -173,6 +173,15 @@ def remove_memo_by_id(memo_id):
         db_session.query(Memo).filter(Memo.id == memo_id).delete()
 
 
+def remove_task_by_id(task_id):
+    """
+    Remove a task from the database by looking up its id.
+    """
+
+    with db_session_scope() as db_session:
+        db_session.query(Task).filter(Task.id == task_id).delete()
+
+
 def remove_user_by_id(user_id):
     """
     Delete a user from the database, including all relational elements.
