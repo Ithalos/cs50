@@ -160,7 +160,8 @@ def create_task():
 @login_required
 def remove_task():
 
-    return "TODO"
+    remove_task_by_id(request.form.get("task_id"))
+    return redirect(url_for("tasks"))
 
 
 @app.route("/birthdays", methods=["GET"])
