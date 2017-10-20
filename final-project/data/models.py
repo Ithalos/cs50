@@ -12,6 +12,7 @@ class User(Base):
 
     memos = relationship("Memo", back_populates="user", cascade="all, delete, delete-orphan")
     tasks = relationship("Task", back_populates="user", cascade="all, delete, delete-orphan")
+    birthdays = relationship("Birthday", back_populates="user", cascade="all, delete, delete-orphan")
 
     def __repr__(self):
         return "<User: (username = {}, password = {})>".format(self.username, self.password)
@@ -44,6 +45,21 @@ class Task(Base):
 
     def __repr__(self):
         return "<Task: (date = {}, text = {})>".format(self.date, self.text)
+
+
+class Birthday(Base):
+
+    __tablename__ = "birthdays"
+
+    id = Column(Integer, primary_key=True)
+    date = Column(Date, nullable=False)
+    person = Column(String, nullable=False)
+
+    user_id = Column(Integer, ForeignKey("users.id"))
+    user = relationship("User", back_populates="birthdays")
+
+    def __repr__(self):
+        return "<Birthday: (date= {}, person = {})>".format(self.date, self.person)
 
 
 create_table_metadata()
