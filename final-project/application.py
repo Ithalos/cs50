@@ -1,4 +1,4 @@
-from data.models import Memo
+from data.models import Birthday, Memo
 from flask import flash, Flask, redirect, render_template, request, session, url_for
 from helpers import *
 from os import getenv
@@ -168,5 +168,8 @@ def remove_task():
 @login_required
 def birthdays():
 
-    return render_template("birthdays.html")
+    user_id = session.get("user_id")
+    with db_session_scope() as db_session:
+        birthdays = db_session.query(Birthday).filter(Birthday.user_id == user_id).all()
+        return render_template("birthdays.html", birthdays=birthdays)
 
