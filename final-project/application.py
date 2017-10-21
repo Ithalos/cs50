@@ -173,3 +173,19 @@ def birthdays():
         birthdays = db_session.query(Birthday).filter(Birthday.user_id == user_id).all()
         return render_template("birthdays.html", birthdays=birthdays)
 
+
+@app.route("/create_birthday", methods=["POST"])
+@login_required
+def create_birthday():
+
+    if verify_create_birthday_form(request.form):
+        if create_new_birthday(request.form):
+            flash("New birthday created!", "message")
+
+        else:
+            flash("Could not create birthday!", "error")
+    else:
+        flash("Incorrect form submission!", "error")
+
+    return redirect(url_for("birthdays"))
+
