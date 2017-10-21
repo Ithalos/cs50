@@ -189,3 +189,11 @@ def create_birthday():
 
     return redirect(url_for("birthdays"))
 
+
+@app.route("/remove_birthday", methods=["POST"])
+@login_required
+def remove_birthday():
+
+    remove_birthday_by_id(request.form.get("birthday.id"))
+    return redirect(url_for("birthdays"))
+
