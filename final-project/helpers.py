@@ -259,6 +259,8 @@ def create_new_task(args):
         user.tasks += [Task(date=date, text=text)]
         db_session.add(user)
 
+    return True
+
 
 def convert_date_to_object(datestring):
     """
