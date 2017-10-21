@@ -239,8 +239,7 @@ def verify_create_task_form(args):
     if date is None:
         return False
 
-    text = args.get("task_text")
-    if text == "":
+    if args.get("task_text") == "":
         return False
 
     return True
