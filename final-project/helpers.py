@@ -289,6 +289,23 @@ def verify_create_birthday_form(args):
     return True
 
 
+def create_new_birthday(args):
+    """
+    Create a new birthday in the database.
+    """
+
+    user_id = session.get("user_id")
+    date = convert_date_to_object(args.get("birthday_date"))
+    person = args.get("birthday_person")
+
+    with db_session_scope() as db_session:
+        user = db_session.query(User).filter(User.id == user_id).one()
+        user.birthdays += [Birthday(date=date, person=person)]
+        db_session.add(user)
+
+    return True
+
+
 def convert_date_to_object(datestring):
     """
     Converts a date string to a python date object.
