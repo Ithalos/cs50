@@ -1,7 +1,7 @@
 from bcrypt import checkpw, gensalt, hashpw
 from contextlib import contextmanager
 from data.database import Session
-from data.models import Memo, Task, User
+from data.models import Birthday, Memo, Task, User
 from datetime import datetime, date
 from flask import request, redirect, session, url_for
 from functools import wraps
@@ -180,6 +180,15 @@ def remove_task_by_id(task_id):
 
     with db_session_scope() as db_session:
         db_session.query(Task).filter(Task.id == task_id).delete()
+
+
+def remove_birthday_by_id(birthday_id):
+    """
+    Remove a birthday from the database by looking up its id.
+    """
+
+    with db_session_scope() as db_session:
+        db_session.query(Birthday).filter(Birthday.id == birthday_id).delete()
 
 
 def remove_user_by_id(user_id):
