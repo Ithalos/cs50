@@ -271,6 +271,24 @@ def create_new_task(args):
     return True
 
 
+def verify_create_birthday_form(args):
+    """
+    Verify user input when creating a new birthday.
+    """
+
+    if not args.get("birthday_date") or not args.get("birthday_person"):
+        return False
+
+    date = convert_date_to_object(args.get("birthday_date"))
+    if date is None:
+        return False
+
+    if args.get("birthday_person") == "":
+        return False
+
+    return True
+
+
 def convert_date_to_object(datestring):
     """
     Converts a date string to a python date object.
