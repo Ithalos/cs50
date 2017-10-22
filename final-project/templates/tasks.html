@@ -6,30 +6,34 @@
 
 {% block body %}
 
-    <div class="create_task">
-        <form action="{{ url_for("create_task") }}" method="post" autocomplete="off">
-            <input type="text" name="task_date" placeholder="YYYY-MM-DD" />
-            <input type="text" name="task_text" placeholder="New task..." />
-            <input type="submit" value="Create" />
-        </form>
-    </div>
+    <div>
+        <table class="entries">
+            <th class="date">Date</th>
+            <th class="text">Task</th>
+            <th class="action">Action</th>
+                <tr>
+                    <form action="{{ url_for("create_task") }}" method="post" autocomplete="off">
+                    <td><input type="text" name="task_date" placeholder="YYYY-MM-DD" /></td>
+                    <td><input type="text" name="task_text" placeholder="New task..." /></td>
+                    <td><input type="submit" value="Create" /></td>
+                    </form>
+                </tr>
 
-    <div class="tasks">
-        {% if tasks %}
-            <ul class="task-list">
+            {% if tasks %}
                 {% for task in tasks %}
-                    <li>
+                    <tr>
                         <form action="{{ url_for("remove_task") }}" method="post">
                             <input type="hidden" name="task_id" value="{{ task.id }}" />
-                            <p>{{ task.date }}||{{ task.text }}</p>
-                            <input type="submit" value="Remove" />
+                            <td>{{ task.date }}</td>
+                            <td>{{ task.text }}</td>
+                            <td><input type="submit" value="Remove" /></td>
                         </form>
-                    </li>
+                    </tr>
                 {% endfor %}
-            </ul>
-        {% else %}
-            <p>Nothing here yet!</p>
-        {% endif %}
+            {% else %}
+                <td>Nothing here yet!</td>
+            {% endif %}
+        </table>
     </div>
 
 {% endblock %}
