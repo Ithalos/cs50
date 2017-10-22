@@ -133,17 +133,69 @@ footer p, footer a
 li.message
 {
     background-color: #5F5F87;
-
 }
 
 li.error
 {
     background-color: #AF5F5F;
-
 }
 
 li.nav-left
 {
     float: left;
+}
+
+table.entries
+{
+    margin-top: 4em;
+    margin-left: auto;
+    margin-right: auto;
+    table-layout: fixed;
+    width: 90%;
+}
+
+table.entries th
+{
+    text-align: center;
+    color: #5F5F87;
+    font-weight: bold;
+}
+
+table.entries td
+{
+    text-align: center;
+    box-sizing: border-box;
+    padding: 10px;
+    width: 95%;
+
+    color: #5F5F87;
+    font-weight: bold;
+}
+
+table.entries td input[type=text]
+{
+    text-align: center;
+    border: 2px solid #5F5F87;
+    box-sizing: border-box;
+    padding: 10px;
+    width: 95%;
+
+    background-color: #FFFFFF;
+    color: #5F5F87;
+    font-weight: bold;
+}
+
+table.entries td input[type=submit]
+{
+    border: none;
+    cursor: pointer;
+    padding: 12px;
+    width: 40%;
+
+    background-color: #5F5F87;
+    color: #F5F5F5;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
 }
 
