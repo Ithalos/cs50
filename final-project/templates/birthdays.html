@@ -6,30 +6,34 @@
 
 {% block body %}
 
-    <div class="create_birthday">
-        <form action="{{ url_for("create_birthday") }}" method="post" autocomplete="off">
-            <input type="text" name="birthday_date" placeholder="YYYY-MM-DD" />
-            <input type="text" name="birthday_person" placeholder="Person..." />
-            <input type="submit" value="Create" />
-        </form>
-    </div>
+    <div>
+        <table class="entries">
+            <th class="date">Date</th>
+            <th class="text">Person</th>
+            <th class="action">Action</th>
+                <tr>
+                    <form action="{{ url_for("create_birthday") }}" method="post" autocomplete="off">
+                    <td><input type="text" name="birthday_date" placeholder="YYYY-MM-DD" /></td>
+                    <td><input type="text" name="birthday_person" placeholder="New birthday..." /></td>
+                    <td><input type="submit" value="Create" /></td>
+                    </form>
+                </tr>
 
-    <div class="birthdays">
-        {% if birthdays %}
-            <ul class="birthday-list">
+            {% if birthdays %}
                 {% for birthday in birthdays %}
-                    <li>
+                    <tr>
                         <form action="{{ url_for("remove_birthday") }}" method="post">
                             <input type="hidden" name="birthday_id" value="{{ birthday.id }}" />
-                            <p>{{ birthday.date }}||{{ birthday.person }}</p>
-                            <input type="submit" value="Remove" />
+                            <td>{{ birthday.date }}</td>
+                            <td>{{ birthday.person }}</td>
+                            <td><input type="submit" value="Remove" /></td>
                         </form>
-                    </li>
+                    </tr>
                 {% endfor %}
-            </ul>
-        {% else %}
-            <p>Nothing here yet!</p>
-        {% endif %}
+            {% else %}
+                <td>Nothing here yet!</td>
+            {% endif %}
+        </table>
     </div>
 
 {% endblock %}
