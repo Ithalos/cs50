@@ -194,6 +194,6 @@ def create_birthday():
 @login_required
 def remove_birthday():
 
-    remove_birthday_by_id(request.form.get("birthday.id"))
+    remove_birthday_by_id(request.form.get("birthday_id"))
     return redirect(url_for("birthdays"))
 
