@@ -6,35 +6,33 @@
 
 {% block body %}
 
-    <div>
-        <table class="entries">
-            <th class="date">Date</th>
-            <th class="text">Task</th>
-            <th class="action">Action</th>
-                <tr>
-                    <form action="{{ url_for("create_task") }}" method="post" autocomplete="off">
+    <table class="entries">
+        <th>Date</th>
+        <th>Task</th>
+        <th>Action</th>
+            <tr>
+                <form action="{{ url_for("create_task") }}" method="post" autocomplete="off">
                     <td><input type="text" name="task_date" placeholder="YYYY-MM-DD" /></td>
                     <td><input type="text" name="task_text" placeholder="New task..." /></td>
                     <td><input type="submit" value="Create" /></td>
+                </form>
+            </tr>
+
+        {% if tasks %}
+            {% for task in tasks %}
+                <tr>
+                    <form action="{{ url_for("remove_task") }}" method="post">
+                        <input type="hidden" name="task_id" value="{{ task.id }}" />
+                        <td>{{ task.date }}</td>
+                        <td>{{ task.text }}</td>
+                        <td><input type="submit" value="Remove" /></td>
                     </form>
                 </tr>
-
-            {% if tasks %}
-                {% for task in tasks %}
-                    <tr>
-                        <form action="{{ url_for("remove_task") }}" method="post">
-                            <input type="hidden" name="task_id" value="{{ task.id }}" />
-                            <td>{{ task.date }}</td>
-                            <td>{{ task.text }}</td>
-                            <td><input type="submit" value="Remove" /></td>
-                        </form>
-                    </tr>
-                {% endfor %}
-            {% else %}
-                <td>Nothing here yet!</td>
-            {% endif %}
-        </table>
-    </div>
+            {% endfor %}
+        {% else %}
+            <td>Nothing here yet!</td>
+        {% endif %}
+    </table>
 
 {% endblock %}
 
