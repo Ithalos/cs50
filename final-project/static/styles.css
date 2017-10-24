@@ -112,11 +112,9 @@ footer p, footer a
     padding: 0;
     margin-left: 0;
     position: absolute;
-    top: 15%;
     left: 50%;
     width: 30em;
     height: 5em;
-    margin-top: -2.5em;
     margin-left: -15em;
 }
 
