@@ -136,7 +136,7 @@ def tasks():
 
     user_id = session.get("user_id")
     with db_session_scope() as db_session:
-        tasks = db_session.query(Task).filter(Task.user_id == user_id).all()
+        tasks = db_session.query(Task).filter(Task.user_id == user_id).order_by(Task.date).all()
         return render_template("tasks.html", tasks=tasks)
 
 
@@ -170,7 +170,7 @@ def birthdays():
 
     user_id = session.get("user_id")
     with db_session_scope() as db_session:
-        birthdays = db_session.query(Birthday).filter(Birthday.user_id == user_id).all()
+        birthdays = db_session.query(Birthday).filter(Birthday.user_id == user_id).order_by(Birthday.date).all()
         return render_template("birthdays.html", birthdays=birthdays)
 
 
