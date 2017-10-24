@@ -13,6 +13,7 @@
         <th class="action">Action</th>
             <tr>
                 <form action="{{ url_for("create_task") }}" method="post" autocomplete="off">
+                    <td></td>
                     <td><input type="text" name="task_date" placeholder="YYYY-MM-DD" /></td>
                     <td><input type="text" name="task_text" placeholder="New task..." /></td>
                     <td><input type="submit" value="Create" /></td>
@@ -32,6 +33,8 @@
                 </tr>
             {% endfor %}
         {% else %}
+            <td></td>
+            <td></td>
             <td>Nothing here yet!</td>
         {% endif %}
     </table>
