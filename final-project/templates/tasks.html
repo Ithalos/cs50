@@ -7,9 +7,10 @@
 {% block body %}
 
     <table class="entries">
-        <th>Date</th>
-        <th>Task</th>
-        <th>Action</th>
+        <th class="daysleft">Days left</th>
+        <th class="date">Date</th>
+        <th class="task">Task</th>
+        <th class="action">Action</th>
             <tr>
                 <form action="{{ url_for("create_task") }}" method="post" autocomplete="off">
                     <td><input type="text" name="task_date" placeholder="YYYY-MM-DD" /></td>
@@ -23,7 +24,8 @@
                 <tr>
                     <form action="{{ url_for("remove_task") }}" method="post">
                         <input type="hidden" name="task_id" value="{{ task.id }}" />
-                        <td>{{ task.date }}</td>
+                        <td class="js_daysleft"></td>
+                        <td class="js_date">{{ task.date }}</td>
                         <td>{{ task.text }}</td>
                         <td><input type="submit" value="Remove" /></td>
                     </form>
