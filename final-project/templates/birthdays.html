@@ -6,35 +6,33 @@
 
 {% block body %}
 
-    <div>
-        <table class="entries">
-            <th class="date">Date</th>
-            <th class="text">Person</th>
-            <th class="action">Action</th>
+    <table class="entries">
+        <th>Date</th>
+        <th>Person</th>
+        <th>Action</th>
+            <tr>
+                <form action="{{ url_for("create_birthday") }}" method="post" autocomplete="off">
+                <td><input type="text" name="birthday_date" placeholder="YYYY-MM-DD" /></td>
+                <td><input type="text" name="birthday_person" placeholder="New birthday..." /></td>
+                <td><input type="submit" value="Create" /></td>
+                </form>
+            </tr>
+
+        {% if birthdays %}
+            {% for birthday in birthdays %}
                 <tr>
-                    <form action="{{ url_for("create_birthday") }}" method="post" autocomplete="off">
-                    <td><input type="text" name="birthday_date" placeholder="YYYY-MM-DD" /></td>
-                    <td><input type="text" name="birthday_person" placeholder="New birthday..." /></td>
-                    <td><input type="submit" value="Create" /></td>
+                    <form action="{{ url_for("remove_birthday") }}" method="post">
+                        <input type="hidden" name="birthday_id" value="{{ birthday.id }}" />
+                        <td>{{ birthday.date }}</td>
+                        <td>{{ birthday.person }}</td>
+                        <td><input type="submit" value="Remove" /></td>
                     </form>
                 </tr>
-
-            {% if birthdays %}
-                {% for birthday in birthdays %}
-                    <tr>
-                        <form action="{{ url_for("remove_birthday") }}" method="post">
-                            <input type="hidden" name="birthday_id" value="{{ birthday.id }}" />
-                            <td>{{ birthday.date }}</td>
-                            <td>{{ birthday.person }}</td>
-                            <td><input type="submit" value="Remove" /></td>
-                        </form>
-                    </tr>
-                {% endfor %}
-            {% else %}
-                <td>Nothing here yet!</td>
-            {% endif %}
-        </table>
-    </div>
+            {% endfor %}
+        {% else %}
+            <td>Nothing here yet!</td>
+        {% endif %}
+    </table>
 
 {% endblock %}
 
