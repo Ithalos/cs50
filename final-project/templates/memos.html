@@ -6,30 +6,30 @@
 
 {% block body %}
 
-    <div class="create_memo">
-        <form action="{{ url_for("create_memo") }}" method="post" autocomplete="off">
-            <input type="text" name="memo_text" placeholder="Enter new memo..." />
-            <input type="submit" value="Create" />
-        </form>
-    </div>
+    <table class="entries">
+        <th>Memo</th>
+        <th>Action</th>
+            <tr>
+                <form action="{{ url_for("create_memo") }}" method="post" autocomplete="off">
+                    <td><input type="text" name="memo_text" placeholder="Enter new memo..." /></td>
+                    <td><input type="submit" value="Create" /></td>
+                </form>
+            </tr>
 
-    <div class="memos">
         {% if memos %}
-            <ul class="memo-list">
-                {% for memo in memos %}
-                    <li>
-                        <form action="{{ url_for("remove_memo") }}" method="post">
-                            <input type="hidden" name="memo_id" value="{{ memo.id }}" />
-                            <p>{{ memo.text }}</p>
-                            <input type="submit" value="Remove" />
-                        </form>
-                    </li>
-                {% endfor %}
-            </ul>
+            {% for memo in memos %}
+                <tr>
+                    <form action="{{ url_for("remove_memo") }}" method="post">
+                        <input type="hidden" name="memo_id" value="{{ memo.id }}" />
+                        <td>{{ memo.text }}</td>
+                        <td><input type="submit" value="Remove" /></td>
+                    </form>
+                </tr>
+            {% endfor %}
         {% else %}
-            <p>Nothing here yet!</p>
+            <td>Nothing here yet!</td>
         {% endif %}
-    </div>
+    </table>
 
 {% endblock %}
 
