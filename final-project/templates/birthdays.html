@@ -7,9 +7,10 @@
 {% block body %}
 
     <table class="entries">
-        <th>Date</th>
-        <th>Person</th>
-        <th>Action</th>
+        <th class="daysleft">Days left</th>
+        <th class="date">Date</th>
+        <th class="person">Person</th>
+        <th class="action">Action</th>
             <tr>
                 <form action="{{ url_for("create_birthday") }}" method="post" autocomplete="off">
                 <td><input type="text" name="birthday_date" placeholder="YYYY-MM-DD" /></td>
@@ -23,7 +24,8 @@
                 <tr>
                     <form action="{{ url_for("remove_birthday") }}" method="post">
                         <input type="hidden" name="birthday_id" value="{{ birthday.id }}" />
-                        <td>{{ birthday.date }}</td>
+                        <td class="js_daysleft"></td>
+                        <td class="js_date">{{ birthday.date }}</td>
                         <td>{{ birthday.person }}</td>
                         <td><input type="submit" value="Remove" /></td>
                     </form>
