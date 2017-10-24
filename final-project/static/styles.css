@@ -197,3 +197,28 @@ table.entries td input[type=submit]
     text-decoration: none;
 }
 
+th.daysleft
+{
+    width: 10%;
+}
+
+th.date
+{
+    width: 20%;
+}
+
+th.task
+{
+    width: 50%;
+}
+
+th.person
+{
+    width: 50%;
+}
+
+th.action
+{
+    width: 20%;
+}
+
