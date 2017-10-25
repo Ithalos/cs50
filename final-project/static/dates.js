@@ -1,3 +1,13 @@
+window.onload = function()
+{
+    // Get the name of the current page
+    var currentPage = window.location.pathname;
+
+    // Get references to the HTML elements we need
+    var dates = getDates();
+    var daysLeft = getDaysLeft();
+}
+
 /*
  * Returns the difference between two dates, in days.
 */
