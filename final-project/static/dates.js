@@ -6,6 +6,12 @@ window.onload = function()
     // Get references to the HTML elements we need
     var dates = getDates();
     var daysLeft = getDaysLeft();
+
+    // Populate the table data elements for days left
+    if (currentPage === "/tasks")
+        setTaskDates(dates, daysLeft);
+    else if (currentPage === "/birthdays")
+        setBirthdayDates(dates, daysLeft);
 }
 
 /*
