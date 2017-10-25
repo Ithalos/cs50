@@ -39,6 +39,27 @@ function setTaskDates(dates, daysLeft)
 }
 
 /*
+ * Populates the table data elements for days left in /birthdays
+*/
+function setBirthdayDates(dates, daysLeft)
+{
+    var today = new Date();
+
+    for (var i = 0; i < dates.length; i++)
+    {
+        var entry = new Date(dates[i].innerHTML);
+
+        // The HTML values read in are birthdates, which means
+        // they are all in the past. Set the year that was
+        // read in to the next year, then calculate the difference.
+        entry.setFullYear(today.getFullYear() + 1);
+
+        var diff = getDateDifference(today, entry) % 365;
+        daysLeft[i].innerHTML = diff;
+    }
+}
+
+/*
  * Returns the difference between two dates, in days.
 */
 function getDateDifference(today, entry)
