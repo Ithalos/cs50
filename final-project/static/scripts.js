@@ -3,9 +3,6 @@ window.onload = function()
     // Get the name of the current page
     var currentPage = window.location.pathname;
 
-    // Get references to the HTML elements we need
-    var dates = getDates();
-    var daysLeft = getDaysLeft();
 
     // Populate the table data elements for days left
     if (currentPage === "/tasks")
@@ -19,6 +16,10 @@ window.onload = function()
 */
 function setTaskDates(dates, daysLeft)
 {
+    // Get references to the HTML elements we need
+    var dates = getDates();
+    var daysLeft = getDaysLeft();
+
     var today = new Date();
 
     for (var i = 0; i < dates.length; i++)
@@ -49,6 +50,10 @@ function setTaskDates(dates, daysLeft)
 */
 function setBirthdayDates(dates, daysLeft)
 {
+    // Get references to the HTML elements we need
+    var dates = getDates();
+    var daysLeft = getDaysLeft();
+
     var today = new Date();
 
     for (var i = 0; i < dates.length; i++)
