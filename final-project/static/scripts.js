@@ -6,15 +6,15 @@ window.onload = function()
 
     // Populate the table data elements for days left
     if (currentPage === "/tasks")
-        setTaskDates(dates, daysLeft);
+        setTaskDates();
     else if (currentPage === "/birthdays")
-        setBirthdayDates(dates, daysLeft);
+        setBirthdayDates();
 }
 
 /*
  * Populates the table data elements for days left in /tasks
 */
-function setTaskDates(dates, daysLeft)
+function setTaskDates()
 {
     // Get references to the HTML elements we need
     var dates = getDates();
@@ -48,7 +48,7 @@ function setTaskDates(dates, daysLeft)
 /*
  * Populates the table data elements for days left in /birthdays
 */
-function setBirthdayDates(dates, daysLeft)
+function setBirthdayDates()
 {
     // Get references to the HTML elements we need
     var dates = getDates();
