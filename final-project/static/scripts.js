@@ -4,6 +4,47 @@ window.onload = function()
     var currentPage = window.location.pathname;
 
 
+    // Add some visual feedback to the register form
+    var register = document.getElementById("register");
+    if (register !== null)
+    {
+        var username = register.username;
+        var password = register.password;
+        var confirmation = register.confirmation;
+
+        username.addEventListener("input", function()
+        {
+            if (username.value.length === 0)
+                username.style.color = "";
+            else if (username.value.length < 4)
+                username.style.color = "red";
+            else
+                username.style.color = "green";
+        });
+
+        password.addEventListener("input", function()
+        {
+            if (password.value.length === 0)
+                password.style.color = "";
+            else if (password.value.length < 8)
+                password.style.color = "red";
+            else
+                password.style.color = "green";
+        });
+
+        confirmation.addEventListener("input", function()
+        {
+            if (confirmation.value.length === 0)
+                confirmation.style.color = "";
+            else if (password.value.length < 8)
+                confirmation.style.color = "red";
+            else if (confirmation.value !== password.value)
+                confirmation.style.color = "red";
+            else
+                confirmation.style.color = "green";
+        });
+    }
+
     // Populate the table data elements for days left
     if (currentPage === "/tasks")
         setTaskDates();
