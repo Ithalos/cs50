@@ -171,3 +171,16 @@ function attachUsernameEvents(username)
     });
 }
 
+function attachPasswordEvents(password)
+{
+    password.addEventListener("input", function()
+    {
+        if (password.value.length === 0)
+            password.style.color = "";
+        else if (password.value.length < 8)
+            password.style.color = "red";
+        else
+            password.style.color = "green";
+    });
+}
+
