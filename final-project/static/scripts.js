@@ -158,6 +158,12 @@ function getDaysLeft()
     return document.getElementsByClassName("js_daysleft");
 }
 
+function attachLoginEvents(login)
+{
+    attachUsernameEvents(login.username);
+    attachPasswordEvents(login.password);
+}
+
 function attachUsernameEvents(username)
 {
     username.addEventListener("input", function()
