@@ -158,3 +158,16 @@ function getDaysLeft()
     return document.getElementsByClassName("js_daysleft");
 }
 
+function attachUsernameEvents(username)
+{
+    username.addEventListener("input", function()
+    {
+        if (username.value.length === 0)
+            username.style.color = "";
+        else if (username.value.length < 4)
+            username.style.color = "red";
+        else
+            username.style.color = "green";
+    });
+}
+
