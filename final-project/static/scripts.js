@@ -200,3 +200,24 @@ function colourSingleInput(input, length)
         input.style.color = "green";
 }
 
+function colourDualInputs(firstInput, secondInput, length)
+{
+    if (firstInput.value.length >= length && secondInput.value.length >= 8)
+    {
+        if (firstInput.value === secondInput.value)
+        {
+            firstInput.style.color = "green";
+            secondInput.style.color = "green";
+        }
+        else
+        {
+            firstInput.style.color = "red";
+            secondInput.style.color = "red";
+        }
+    }
+    else
+    {
+        colourSingleInput(firstInput, 8);
+    }
+}
+
