@@ -7,28 +7,7 @@ window.onload = function()
     var login = document.getElementById("login");
     if (login !== null)
     {
-        var username = login.username;
-        var password = login.password;
-
-        username.addEventListener("input", function()
-        {
-            if (username.value.length === 0)
-                username.style.color = "";
-            else if (username.value.length < 4)
-                username.style.color = "red";
-            else
-                username.style.color = "green";
-        });
-
-        password.addEventListener("input", function()
-        {
-            if (password.value.length === 0)
-                password.style.color = "";
-            else if (password.value.length < 8)
-                password.style.color = "red";
-            else
-                password.style.color = "green";
-        });
+        attachLoginEvents(login);
     }
 
     // Add some visual feedback to the register form
