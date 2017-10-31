@@ -180,6 +180,19 @@ function attachPasswordEvents(password)
     });
 }
 
+function attachPasswordConfirmationEvents(password, confirmation)
+{
+    password.addEventListener("input", function()
+    {
+        colourDualInputs(password, confirmation, 8);
+    });
+
+    confirmation.addEventListener("input", function()
+    {
+        colourDualInputs(confirmation, password, 8);
+    });
+}
+
 function colourSingleInput(input, length)
 {
     if (input.value.length === 0)
