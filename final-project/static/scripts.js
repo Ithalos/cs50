@@ -164,6 +164,12 @@ function attachLoginEvents(login)
     attachPasswordEvents(login.password);
 }
 
+function attachRegisterEvents(register)
+{
+    attachUsernameEvents(register.username);
+    attachPasswordConfirmationEvents(register.password, register.confirmation);
+}
+
 function attachUsernameEvents(username)
 {
     username.addEventListener("input", function()
