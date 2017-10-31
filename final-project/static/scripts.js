@@ -190,3 +190,13 @@ function attachPasswordEvents(password)
     });
 }
 
+function colourSingleInput(input, length)
+{
+    if (input.value.length === 0)
+        input.style.color = "";
+    else if (input.value.length < length)
+        input.style.color = "red";
+    else
+        input.style.color = "green";
+}
+
