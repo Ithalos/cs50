@@ -107,6 +107,7 @@ function attachLoginEvents(login)
 {
     attachUsernameEvents(login.username);
     attachPasswordEvents(login.password);
+    attachFormValidation(login);
 }
 
 function attachRegisterEvents(register)
