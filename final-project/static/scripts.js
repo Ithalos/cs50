@@ -175,3 +175,30 @@ function colourDualInputs(firstInput, secondInput, length)
     }
 }
 
+function formValidation(form)
+{
+    var values = [];
+    values[0] = true;
+
+    if (form.username.value.length < 4)
+    {
+        values[0] = false;
+        values.push("Your username must be at least 4 characters long!");
+    }
+    if (form.password.value.length < 8)
+    {
+        values[0] = false;
+        values.push("Your password must be at least 8 characters long!");
+    }
+    if (form.confirmation !== null)
+    {
+        if (form.password.value !== form.confirmation.value)
+        {
+            values[0] = false;
+            values.push("Your password & confirmation do not match!");
+        }
+    }
+
+    return values;
+}
+
