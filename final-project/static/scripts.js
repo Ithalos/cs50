@@ -22,7 +22,7 @@ window.onload = function()
         setTaskDates();
     else if (currentPage === "/birthdays")
         setBirthdayDates();
-}
+};
 
 /*
  * Populates the table data elements for days left in /tasks
