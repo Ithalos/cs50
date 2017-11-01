@@ -202,3 +202,33 @@ function formValidation(form)
     return values;
 }
 
+function attachFormValidation(form)
+{
+    form.addEventListener("submit", function(event)
+    {
+        event.preventDefault();
+
+        var errors = document.getElementsByClassName("error");
+        while (errors.length > 0)
+            errors[0].remove();
+
+        var values = formValidation(form);
+        if (values[0])
+        {
+            form.submit();
+        }
+        else
+        {
+            for (var i = 1; i < values.length; i++)
+            {
+                var element = document.createElement("p");
+                var text = document.createTextNode(values[i]);
+                element.appendChild(text);
+                element.className = "error";
+                element.style.color = "red";
+                form.appendChild(element);
+            }
+        }
+    });
+}
+
