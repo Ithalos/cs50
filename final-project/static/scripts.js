@@ -3,14 +3,14 @@ window.onload = function()
     // Get the name of the current page
     var currentPage = window.location.pathname;
 
-    // Add some visual feedback to the login form
+    // If this page has a login form, attach functionality to it
     var login = document.getElementById("login");
     if (login !== null)
     {
         attachLoginEvents(login);
     }
 
-    // Add some visual feedback to the register form
+    // If this page has a register form, attach functionality to it
     var register = document.getElementById("register");
     if (register !== null)
     {
