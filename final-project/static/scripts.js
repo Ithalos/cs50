@@ -93,16 +93,19 @@ function getDateDifference(today, entry)
     return Math.floor((entry - today) / (1000 * 60 * 60 * 24)) + 1;
 }
 
+// Get HTML element references
 function getDates()
 {
     return document.getElementsByClassName("js_date");
 }
 
+// Get HTML element references
 function getDaysLeft()
 {
     return document.getElementsByClassName("js_daysleft");
 }
 
+// Attach functionality to login form
 function attachLoginEvents(login)
 {
     attachUsernameEvents(login.username);
@@ -110,6 +113,7 @@ function attachLoginEvents(login)
     attachFormValidation(login);
 }
 
+// Attach functionality to register form
 function attachRegisterEvents(register)
 {
     attachUsernameEvents(register.username);
@@ -117,6 +121,7 @@ function attachRegisterEvents(register)
     attachFormValidation(register);
 }
 
+// Colours the username input of a form
 function attachUsernameEvents(username)
 {
     username.addEventListener("input", function()
@@ -125,6 +130,7 @@ function attachUsernameEvents(username)
     });
 }
 
+// Colours the password input of a form
 function attachPasswordEvents(password)
 {
     password.addEventListener("input", function()
@@ -133,6 +139,7 @@ function attachPasswordEvents(password)
     });
 }
 
+// Colours the password and confirmation input of a form
 function attachPasswordConfirmationEvents(password, confirmation)
 {
     password.addEventListener("input", function()
@@ -146,6 +153,7 @@ function attachPasswordConfirmationEvents(password, confirmation)
     });
 }
 
+// Colours the given input, depending on its length
 function colourSingleInput(input, length)
 {
     if (input.value.length === 0)
@@ -156,6 +164,10 @@ function colourSingleInput(input, length)
         input.style.color = "green";
 }
 
+/*
+ * Colours the given inputs, depending on their lengths,
+ * and whether or not they match.
+*/
 function colourDualInputs(firstInput, secondInput, length)
 {
     if (firstInput.value.length >= length && secondInput.value.length >= length)
@@ -177,6 +189,12 @@ function colourDualInputs(firstInput, secondInput, length)
     }
 }
 
+/*
+ * Validates a login or register form. Returns an array, whose first index
+ * will be a boolean that reflects the validity of the form.
+ * If the form was invalid, all further indices will be separate
+ * error messages that state which inputs were invalid and why.
+*/
 function formValidation(form)
 {
     var values = [];
@@ -204,16 +222,23 @@ function formValidation(form)
     return values;
 }
 
+/*
+ * Stops submission of the login or register form unless all inputs are valid.
+ * Prints an error message for every invalid input when the form is submitted.
+*/
 function attachFormValidation(form)
 {
     form.addEventListener("submit", function(event)
     {
+        // Prevent form submission
         event.preventDefault();
 
+        // Clean up potential errors that already exist from a previous attempt
         var errors = document.getElementsByClassName("error");
         while (errors.length > 0)
             errors[0].remove();
 
+        // Check form validity
         var values = formValidation(form);
         if (values[0])
         {
@@ -221,6 +246,9 @@ function attachFormValidation(form)
         }
         else
         {
+            // Iterate over error messages and display them on screen.
+            // This loop must be 1-indexed, else the boolean
+            // value will also be displayed.
             for (var i = 1; i < values.length; i++)
             {
                 var element = document.createElement("p");
