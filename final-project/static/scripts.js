@@ -158,7 +158,7 @@ function colourSingleInput(input, length)
 
 function colourDualInputs(firstInput, secondInput, length)
 {
-    if (firstInput.value.length >= length && secondInput.value.length >= 8)
+    if (firstInput.value.length >= length && secondInput.value.length >= length)
     {
         if (firstInput.value === secondInput.value)
         {
@@ -173,7 +173,7 @@ function colourDualInputs(firstInput, secondInput, length)
     }
     else
     {
-        colourSingleInput(firstInput, 8);
+        colourSingleInput(firstInput, length);
     }
 }
 
