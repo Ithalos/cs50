@@ -210,7 +210,7 @@ function formValidation(form)
         values[0] = false;
         values.push("Your password must be at least 8 characters long!");
     }
-    if (form.confirmation !== null)
+    if (form.confirmation)
     {
         if (form.password.value !== form.confirmation.value)
         {
