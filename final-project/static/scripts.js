@@ -17,11 +17,21 @@ window.onload = function()
         attachRegisterEvents(register);
     }
 
-    // Populate the table data elements for days left
-    if (currentPage === "/tasks")
+    // Check if we are on the /tasks page
+    var taskForm = document.getElementById("task_form");
+    if (taskForm)
+    {
+        // Populate the table data elements for days left
         setTaskDates();
-    else if (currentPage === "/birthdays")
+    }
+
+    // Check if we are on the /birthdays page
+    var birthdayForm = document.getElementById("birthday_form");
+    if (birthdayForm)
+    {
+        // Populate the table data elements for days left
         setBirthdayDates();
+    }
 };
 
 /*
