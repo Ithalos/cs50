@@ -12,7 +12,7 @@
         <th class="task">Task</th>
         <th class="action">Action</th>
             <tr>
-                <form action="{{ url_for("create_task") }}" method="post" autocomplete="off">
+                <form action="{{ url_for("create_task") }}" id="task_form" method="post" autocomplete="off">
                     <td></td>
                     <td><input type="text" name="task_date" placeholder="YYYY-MM-DD" /></td>
                     <td><input type="text" name="task_text" placeholder="New task..." /></td>
