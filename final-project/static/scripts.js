@@ -1,8 +1,5 @@
 window.onload = function()
 {
-    // Get the name of the current page
-    var currentPage = window.location.pathname;
-
     // If this page has a login form, attach functionality to it
     var login = document.getElementById("login");
     if (login)
