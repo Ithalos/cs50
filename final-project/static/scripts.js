@@ -5,7 +5,7 @@ window.onload = function()
 
     // If this page has a login form, attach functionality to it
     var login = document.getElementById("login");
-    if (login !== null)
+    if (login)
     {
         attachLoginEvents(login);
     }
