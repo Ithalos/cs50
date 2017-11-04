@@ -12,7 +12,7 @@ window.onload = function()
 
     // If this page has a register form, attach functionality to it
     var register = document.getElementById("register");
-    if (register !== null)
+    if (register)
     {
         attachRegisterEvents(register);
     }
