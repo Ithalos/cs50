@@ -12,7 +12,7 @@
         <th class="person">Person</th>
         <th class="action">Action</th>
             <tr>
-                <form action="{{ url_for("create_birthday") }}" method="post" autocomplete="off">
+                <form action="{{ url_for("create_birthday") }}" id="birthday_form" method="post" autocomplete="off">
                 <td></td>
                 <td><input type="text" name="birthday_date" placeholder="YYYY-MM-DD" /></td>
                 <td><input type="text" name="birthday_person" placeholder="New birthday..." /></td>
