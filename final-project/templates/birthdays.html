@@ -14,7 +14,7 @@
             <tr>
                 <form action="{{ url_for("create_birthday") }}" id="birthday_form" method="post" autocomplete="off">
                 <td></td>
-                <td><input type="text" name="birthday_date" placeholder="YYYY-MM-DD" /></td>
+                <td><input type="text" id="isodate" name="birthday_date" placeholder="YYYY-MM-DD" /></td>
                 <td><input type="text" name="birthday_person" placeholder="New birthday..." /></td>
                 <td><input type="submit" value="Create" /></td>
                 </form>
