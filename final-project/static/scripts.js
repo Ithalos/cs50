@@ -269,3 +269,10 @@ function attachFormValidation(form)
     });
 }
 
+// Check whether a string is a valid ISO date. (YYYY-MM-DD)
+function validateISODateString(date)
+{
+    var date = new Date(date);
+    return !isNaN(date.getTime());
+}
+
