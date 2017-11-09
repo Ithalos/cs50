@@ -276,3 +276,35 @@ function validateISODateString(date)
     return !isNaN(date.getTime());
 }
 
+/*
+ * Validate the date field when creating a new task or birthday.
+ * If the date is not a valid ISO format, display an error.
+*/
+function attachDateEvents(form)
+{
+    form.addEventListener("submit", function(event)
+    {
+        // Prevent form submission
+        event.preventDefault();
+
+        if (validateISODateString(form.isodate.value))
+        {
+            form.submit();
+        }
+        else
+        {
+            form.isodate.focus();
+            form.isodate.value = "";
+            form.isodate.style.color = "red";
+            form.isodate.placeholder = "Date format must be YYYY-MM-DD!";
+        }
+    });
+
+    // Reset date field styling and placeholder on new input
+    form.isodate.addEventListener("input", function()
+    {
+        form.isodate.placeholder = "YYYY-MM-DD";
+        form.isodate.style.color = "";
+    });
+}
+
