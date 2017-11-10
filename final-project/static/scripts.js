@@ -20,6 +20,7 @@ window.onload = function()
     {
         // Populate the table data elements for days left
         setTaskDates();
+        attachDateEvents(taskForm);
     }
 
     // Check if we are on the /birthdays page
