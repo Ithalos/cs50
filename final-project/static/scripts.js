@@ -29,6 +29,7 @@ window.onload = function()
     {
         // Populate the table data elements for days left
         setBirthdayDates();
+        attachDateEvents(birthdayForm);
     }
 };
 
