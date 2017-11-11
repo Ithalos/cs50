@@ -20,6 +20,7 @@ window.onload = function()
     {
         // Populate the table data elements for days left
         setTaskDates();
+        // Add date field verification
         attachDateEvents(taskForm);
     }
 
@@ -29,6 +30,7 @@ window.onload = function()
     {
         // Populate the table data elements for days left
         setBirthdayDates();
+        // Add date field verification
         attachDateEvents(birthdayForm);
     }
 };
