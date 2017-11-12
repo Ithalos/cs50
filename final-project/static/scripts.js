@@ -297,6 +297,7 @@ function attachDateEvents(form)
         }
         else
         {
+            // Display error message
             form.isodate.focus();
             form.isodate.value = "";
             form.isodate.style.color = "red";
