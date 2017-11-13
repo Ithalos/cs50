@@ -10,7 +10,7 @@
         <th>Memo</th>
         <th class="action">Action</th>
             <tr>
-                <form action="{{ url_for("create_memo") }}" method="post" autocomplete="off">
+                <form action="{{ url_for("create_memo") }}" id="memo_form" method="post" autocomplete="off">
                     <td><input type="text" name="memo_text" placeholder="Enter new memo..." /></td>
                     <td><input type="submit" value="Create" /></td>
                 </form>
