@@ -33,6 +33,12 @@ window.onload = function()
         // Add date field verification
         attachDateEvents(birthdayForm);
     }
+
+    var memoForm = document.getElementById("memo_form");
+    if (memoForm)
+    {
+        attachMemoEvents(memoForm);
+    }
 };
 
 /*
