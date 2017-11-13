@@ -327,18 +327,20 @@ function attachDateEvents(form)
 */
 function attachMemoEvents(form)
 {
+    memoField = form.memo_text;
+
     form.addEventListener("submit", function(event)
     {
         // Prevent form submission
         event.preventDefault();
 
         // Check whether memo field is empty
-        if (form.memo_text.value.length === 0)
+        if (memoField.value.length === 0)
         {
             // Display error message
-            form.memo_text.focus();
-            form.memo_text.style.color = "red";
-            form.memo_text.placeholder = "You cannot create an empty memo!";
+            memoField.focus();
+            memoField.style.color = "red";
+            memoField.placeholder = "You cannot create an empty memo!";
         }
         else
         {
@@ -347,10 +349,10 @@ function attachMemoEvents(form)
     });
 
     // Reset memo field styling and placeholder on new input
-    form.memo_text.addEventListener("input", function()
+    memoField.addEventListener("input", function()
     {
-        form.memo_text.placeholder = "Enter new memo...";
-        form.memo_text.style = "";
+        memoField.placeholder = "Enter new memo...";
+        memoField.style = "";
     });
 }
 
