@@ -34,9 +34,11 @@ window.onload = function()
         attachDateEvents(birthdayForm);
     }
 
+    // Check if we are on the /memos page
     var memoForm = document.getElementById("memo_form");
     if (memoForm)
     {
+        // Add memo field verification
         attachMemoEvents(memoForm);
     }
 };
