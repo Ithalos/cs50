@@ -313,3 +313,28 @@ function attachDateEvents(form)
     });
 }
 
+function attachMemoEvents(form)
+{
+    form.addEventListener("submit", function(event)
+    {
+        event.preventDefault();
+
+        if (form.memo_text.value.length === 0)
+        {
+            form.memo_text.focus();
+            form.memo_text.style.color = "red";
+            form.memo_text.placeholder = "You cannot create an empty memo!";
+        }
+        else
+        {
+            form.submit();
+        }
+    });
+
+    form.memo_text.addEventListener("input", function()
+    {
+        form.memo_text.placeholder = "Enter new memo...";
+        form.memo_text.style = "";
+    });
+}
+
