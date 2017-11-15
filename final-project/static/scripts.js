@@ -338,6 +338,7 @@ function emptyFieldCheck(form, field)
         // Prevent form submission
         event.preventDefault();
 
+        // Check for empty field
         if (field.value.length === 0)
         {
             // Display error message
