@@ -22,6 +22,8 @@ window.onload = function()
         setTaskDates();
         // Add date field verification
         attachDateEvents(taskForm);
+        // Add task field verification
+        emptyFieldCheck(taskForm, taskForm.task_text);
     }
 
     // Check if we are on the /birthdays page
