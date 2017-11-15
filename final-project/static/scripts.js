@@ -34,6 +34,8 @@ window.onload = function()
         setBirthdayDates();
         // Add date field verification
         attachDateEvents(birthdayForm);
+        // Add birthday field verification
+        emptyFieldCheck(birthdayForm, birthdayForm.birthday_person);
     }
 
     // Check if we are on the /memos page
