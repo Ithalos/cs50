@@ -322,25 +322,24 @@ function attachDateEvents(form)
 }
 
 /*
- * Validate the memo field when creating a new memo.
+ * Validate a form field on submission.
  * If the field is empty, display an error.
 */
-function attachMemoEvents(form)
+function emptyFieldCheck(form, field)
 {
-    memoField = form.memo_text;
+    var defaultPlaceholder = field.placeholder;
 
     form.addEventListener("submit", function(event)
     {
         // Prevent form submission
         event.preventDefault();
 
-        // Check whether memo field is empty
-        if (memoField.value.length === 0)
+        if (field.value.length === 0)
         {
             // Display error message
-            memoField.focus();
-            memoField.style.color = "red";
-            memoField.placeholder = "You cannot create an empty memo!";
+            field.focus();
+            field.style.color = "red";
+            field.placeholder = "Please fill in this field!";
         }
         else
         {
@@ -348,11 +347,11 @@ function attachMemoEvents(form)
         }
     });
 
-    // Reset memo field styling and placeholder on new input
-    memoField.addEventListener("input", function()
+    // Reset field styling and placeholder on new input
+    field.addEventListener("input", function()
     {
-        memoField.placeholder = "Enter new memo...";
-        memoField.style = "";
+        field.placeholder = defaultPlaceholder;
+        field.style = "";
     });
 }
 
