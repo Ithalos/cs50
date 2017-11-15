@@ -39,7 +39,7 @@ window.onload = function()
     if (memoForm)
     {
         // Add memo field verification
-        attachMemoEvents(memoForm);
+        emptyFieldCheck(form, form.memo_text);
     }
 };
 
