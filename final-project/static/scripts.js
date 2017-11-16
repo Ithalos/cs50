@@ -356,7 +356,7 @@ function emptyFieldCheck(form, field)
     field.addEventListener("input", function()
     {
         field.placeholder = defaultPlaceholder;
-        field.style = "";
+        field.style.color = "";
     });
 }
 
