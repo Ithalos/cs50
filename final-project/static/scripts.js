@@ -262,7 +262,7 @@ function attachFormValidation(form)
             errors[0].remove();
 
         // Check form validity
-        var values = formValidation(form);
+        var values = formValidation(form, 4, 8);
         if (values[0])
         {
             form.submit();
