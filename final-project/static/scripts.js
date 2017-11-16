@@ -218,17 +218,17 @@ function colourDualInputs(firstInput, secondInput, length)
  * If the form was invalid, all further indices will be separate
  * error messages that state which inputs were invalid and why.
 */
-function formValidation(form)
+function formValidation(form, usernameLength, passwordLength)
 {
     var values = [];
     values[0] = true;
 
-    if (form.username.value.length < 4)
+    if (form.username.value.length < usernameLength)
     {
         values[0] = false;
         values.push("Your username must be at least 4 characters long!");
     }
-    if (form.password.value.length < 8)
+    if (form.password.value.length < passwordLength)
     {
         values[0] = false;
         values.push("Your password must be at least 8 characters long!");
