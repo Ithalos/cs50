@@ -319,3 +319,21 @@ def convert_date_to_object(datestring):
     except ValueError:
         return None
 
+
+def get_username_from_id(user_id=None):
+    """
+    Looks up a user_id in the database and returns the associated
+    username, if it exists, else returns None. If no user_id is
+    passed in, the function will default to using the current session.
+    """
+
+    if user_id is None:
+        user_id = session.get("user_id")
+
+    with db_session_scope() as db_session:
+        try:
+            user = db_session.query(User).filter(User.id == user_id).one()
+            return user.username
+        except NoResultFound:
+            return None
+
