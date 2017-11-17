@@ -67,7 +67,7 @@ def logout():
 @login_required
 def userprofile():
 
-    return render_template("userprofile.html")
+    return render_template("userprofile.html", username=get_username_from_id())
 
 
 @app.route("/change_password", methods=["POST"])
