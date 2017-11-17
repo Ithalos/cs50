@@ -9,7 +9,9 @@
     <div class="form highPos">
         <form action="{{ url_for("change_password") }}" method="post" autocomplete="off">
             <br />
-            <input type="password" name="oldpassword" placeholder="Old password" required>
+            <input type="text" name="username" value="{{ username }}" readonly>
+            <br />
+            <input type="password" name="oldpassword" placeholder="Old password" required autofocus>
             <br />
             <input type="password" name="newpassword" placeholder="New password" required>
             <br />
