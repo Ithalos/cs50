@@ -116,6 +116,11 @@ footer p, footer a
     top: 50%;
 }
 
+.lowPos
+{
+    top: 90%;
+}
+
 .flashes
 {
     padding: 0;
