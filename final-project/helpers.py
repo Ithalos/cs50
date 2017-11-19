@@ -36,11 +36,9 @@ def db_session_scope():
     try:
         yield db_session
         db_session.commit()
-
     except:
         db_session.rollback()
         raise
-
     finally:
         db_session.close()
 
