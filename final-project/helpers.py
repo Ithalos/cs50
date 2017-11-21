@@ -52,6 +52,14 @@ def encrypt_password(password):
     return hashpw(password.encode("utf8"), gensalt())
 
 
+def validate_input_length(arg, length):
+    """
+    Validate the length of a given input.
+    """
+
+    return len(arg) >= length:
+
+
 def verify_register_form(args):
     """
     Verify user input for the registry form.
