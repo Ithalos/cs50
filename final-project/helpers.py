@@ -8,6 +8,10 @@ from functools import wraps
 from sqlalchemy.orm.exc import NoResultFound
 
 
+MIN_USERNAME_LENGTH = 4
+MIN_PASSWORD_LENGTH = 8
+
+
 def login_required(f):
     """
     Require the user to be logged in to access a route.
