@@ -80,9 +80,9 @@ def verify_register_form(args):
     Checks for the required parameters and their length.
     """
 
-    if not args.get("username") or len(args.get("username")) < 4 \
-    or not args.get("password") or len(args.get("password")) < 8 \
-    or not args.get("confirmation") or len(args.get("confirmation")) < 8 \
+    if not validate_input(args.get("username"), MIN_USERNAME_LENGTH) \
+    or not validate_input(args.get("password"), MIN_PASSWORD_LENGTH) \
+    or not validate_input(args.get("confirmation"), MIN_PASSWORD_LENGTH) \
     or args.get("password") != args.get("confirmation"):
         return False
 
