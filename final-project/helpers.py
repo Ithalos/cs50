@@ -60,6 +60,16 @@ def validate_input_length(arg, length):
     return len(arg) >= length:
 
 
+def validate_input(arg, length):
+    """
+    Check if a form input exists and its length.
+    """
+
+    if not arg:
+        return False
+    return validate_input_length(arg, length)
+
+
 def verify_register_form(args):
     """
     Verify user input for the registry form.
