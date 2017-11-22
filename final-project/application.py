@@ -113,7 +113,7 @@ def create_memo():
 
     memo_text = request.form.get("memo_text")
 
-    if memo_text != "":
+    if memo_text and memo_text != "":
         create_new_memo(memo_text)
         flash("New memo created!", "message")
     else:
