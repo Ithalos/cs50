@@ -8,6 +8,7 @@ from functools import wraps
 from sqlalchemy.orm.exc import NoResultFound
 
 
+# Global variables
 MIN_USERNAME_LENGTH = 4
 MIN_PASSWORD_LENGTH = 8
 
