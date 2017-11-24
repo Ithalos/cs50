@@ -331,6 +331,7 @@ function attachDateEvents(form)
 */
 function emptyFieldCheck(form, field)
 {
+    // Store the default placeholder so we can reset to it later
     var defaultPlaceholder = field.placeholder;
 
     form.addEventListener("submit", function(event)
