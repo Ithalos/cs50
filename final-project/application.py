@@ -10,6 +10,9 @@ app.config["SECRET_KEY"] = getenv("FLASK_SECRET_KEY")
 
 @app.route("/", methods=["GET"])
 def index():
+    """
+    Display the index page.
+    """
 
     return render_template("index.html")
 
