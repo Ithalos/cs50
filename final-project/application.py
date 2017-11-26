@@ -19,6 +19,9 @@ def index():
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
+    """
+    Allow a person to register a user account.
+    """
 
     if request.method == "POST":
         if verify_register_form(request.form):
