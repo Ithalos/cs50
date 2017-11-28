@@ -43,6 +43,9 @@ def register():
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
+    """
+    Allow a person to log in with their user account.
+    """
 
     if request.method == "POST":
         if verify_login_form(request.form):
