@@ -67,6 +67,9 @@ def login():
 
 @app.route("/logout", methods=["GET"])
 def logout():
+    """
+    Log the user out.
+    """
 
     session.pop("user_id", None)
     return redirect(url_for("index"))
