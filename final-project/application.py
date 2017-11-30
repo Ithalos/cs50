@@ -78,6 +78,9 @@ def logout():
 @app.route("/userprofile", methods=["GET"])
 @login_required
 def userprofile():
+    """
+    Display a user's profile page.
+    """
 
     return render_template("userprofile.html", username=get_username_from_id())
 
