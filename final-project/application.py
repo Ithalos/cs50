@@ -88,6 +88,9 @@ def userprofile():
 @app.route("/change_password", methods=["POST"])
 @login_required
 def change_password():
+    """
+    Allow a user to change their password.
+    """
 
     if verify_change_password_form(request.form):
         if change_user_password(request.form):
