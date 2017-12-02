@@ -107,6 +107,9 @@ def change_password():
 @app.route("/remove_account", methods=["POST"])
 @login_required
 def remove_account():
+    """
+    Delete a user's account from the database.
+    """
 
     if request.form.get("remove") is not None:
         remove_user_by_id(session.get("user_id"))
