@@ -121,6 +121,9 @@ def remove_account():
 @app.route("/memos", methods=["GET"])
 @login_required
 def memos():
+    """
+    Display the memos page, where users can view, create and remove memos.
+    """
 
     user_id = session.get("user_id")
     with db_session_scope() as db_session:
