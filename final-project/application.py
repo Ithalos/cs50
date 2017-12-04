@@ -134,6 +134,9 @@ def memos():
 @app.route("/create_memo", methods=["POST"])
 @login_required
 def create_memo():
+    """
+    Create a new memo.
+    """
 
     memo_text = request.form.get("memo_text")
 
