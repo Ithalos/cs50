@@ -163,6 +163,9 @@ def remove_memo():
 @app.route("/tasks", methods=["GET"])
 @login_required
 def tasks():
+    """
+    Display the tasks page, where users can view, create and remove tasks.
+    """
 
     user_id = session.get("user_id")
     with db_session_scope() as db_session:
