@@ -195,6 +195,9 @@ def create_task():
 @app.route("/remove_task", methods=["POST"])
 @login_required
 def remove_task():
+    """
+    Remove a task.
+    """
 
     remove_task_by_id(request.form.get("task_id"))
     return redirect(url_for("tasks"))
