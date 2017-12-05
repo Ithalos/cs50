@@ -62,7 +62,7 @@ def validate_input_length(arg, length):
     Validate the length of a given input.
     """
 
-    return len(arg) >= length:
+    return len(arg) >= length
 
 
 def validate_input(arg, length):
