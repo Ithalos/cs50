@@ -152,6 +152,9 @@ def create_memo():
 @app.route("/remove_memo", methods=["POST"])
 @login_required
 def remove_memo():
+    """
+    Remove a memo.
+    """
 
     remove_memo_by_id(request.form.get("memo_id"))
     return redirect(url_for("memos"))
