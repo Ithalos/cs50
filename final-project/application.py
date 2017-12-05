@@ -176,6 +176,9 @@ def tasks():
 @app.route("/create_task", methods=["POST"])
 @login_required
 def create_task():
+    """
+    Create a new task.
+    """
 
     if verify_create_task_form(request.form):
         if create_new_task(request.form):
