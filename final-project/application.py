@@ -206,6 +206,9 @@ def remove_task():
 @app.route("/birthdays", methods=["GET"])
 @login_required
 def birthdays():
+    """
+    Display the birthdays page, where users can view, create and remove birthdays.
+    """
 
     user_id = session.get("user_id")
     with db_session_scope() as db_session:
