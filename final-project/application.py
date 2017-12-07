@@ -219,6 +219,9 @@ def birthdays():
 @app.route("/create_birthday", methods=["POST"])
 @login_required
 def create_birthday():
+    """
+    Create a new birthday.
+    """
 
     if verify_create_birthday_form(request.form):
         if create_new_birthday(request.form):
