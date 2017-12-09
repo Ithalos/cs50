@@ -345,7 +345,7 @@ def get_username_from_id(user_id=None):
     """
     Looks up a user_id in the database and returns the associated
     username, if it exists, else returns None. If no user_id is
-    passed in, the function will default to using the current session.
+    passed in, the function will default to using the current session's user id.
     """
 
     if user_id is None:
