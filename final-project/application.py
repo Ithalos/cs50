@@ -156,7 +156,9 @@ def remove_memo():
     Remove a memo.
     """
 
-    remove_memo_by_id(request.form.get("memo_id"))
+    if request.form.get("memo_id"):
+        remove_memo_by_id(request.form.get("memo_id"))
+
     return redirect(url_for("memos"))
 
 
